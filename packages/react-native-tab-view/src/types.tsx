@@ -4,12 +4,12 @@ import type { PagerViewProps } from 'react-native-pager-view';
 export type LocaleDirection = 'ltr' | 'rtl';
 
 export type Route = {
-  key: string;
-  icon?: string;
-  title?: string;
-  accessible?: boolean;
-  accessibilityLabel?: string;
-  testID?: string;
+  'key': string;
+  'icon'?: string;
+  'title'?: string;
+  'accessible'?: boolean;
+  'aria-label'?: string;
+  'testID'?: string;
 };
 
 export type Event = {

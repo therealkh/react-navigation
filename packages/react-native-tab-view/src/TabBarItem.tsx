@@ -92,19 +92,19 @@ type TabBarItemInternalProps<T extends Route> = Omit<
   | 'getTestID'
   | 'getAccessible'
 > & {
-  isFocused: boolean;
-  index: number;
-  routesLength: number;
-  accessibilityLabel?: string;
-  label?: string;
-  testID?: string;
-  accessible?: boolean;
+  'isFocused': boolean;
+  'index': number;
+  'routesLength': number;
+  'aria-label'?: string;
+  'label'?: string;
+  'testID'?: string;
+  'accessible'?: boolean;
 };
 
 const TabBarItemInternal = <T extends Route>({
-  accessibilityLabel,
+  'aria-label': ariaLabel,
   accessible,
-  label: labelText,
+  'label': labelText,
   testID,
   onLongPress,
   onPress,
@@ -112,18 +112,18 @@ const TabBarItemInternal = <T extends Route>({
   position,
   route,
   style,
-  inactiveColor: inactiveColorCustom,
-  activeColor: activeColorCustom,
+  'inactiveColor': inactiveColorCustom,
+  'activeColor': activeColorCustom,
   labelStyle,
   onLayout,
-  index: tabIndex,
+  'index': tabIndex,
   pressColor,
   pressOpacity,
   renderBadge,
   renderIcon,
   defaultTabWidth,
   routesLength,
-  renderLabel: renderLabelCustom,
+  'renderLabel': renderLabelCustom,
   android_ripple = { borderless: true },
 }: TabBarItemInternalProps<T>) => {
   const labelColorFromStyle = StyleSheet.flatten(labelStyle || {}).color;
@@ -221,8 +221,7 @@ const TabBarItemInternal = <T extends Route>({
 
   const scene = { route };
 
-  accessibilityLabel =
-    typeof accessibilityLabel !== 'undefined' ? accessibilityLabel : labelText;
+  ariaLabel = typeof ariaLabel !== 'undefined' ? ariaLabel : labelText;
 
   const badge = renderBadge ? renderBadge(scene) : null;
 
@@ -231,9 +230,9 @@ const TabBarItemInternal = <T extends Route>({
       android_ripple={android_ripple}
       testID={testID}
       accessible={accessible}
-      accessibilityLabel={accessibilityLabel}
-      accessibilityRole="tab"
-      accessibilityState={{ selected: isFocused }}
+      role="tab"
+      aria-label={ariaLabel}
+      aria-selected={isFocused}
       pressColor={pressColor}
       pressOpacity={pressOpacity}
       unstable_pressDelay={0}
@@ -276,7 +275,7 @@ export function TabBarItem<T extends Route>(props: Props<T>) {
 
   const scene = { route };
 
-  const accessibilityLabel = getAccessibilityLabel(scene);
+  const ariaLabel = getAccessibilityLabel(scene);
   const label = getLabelText(scene);
   const testID = getTestID(scene);
   const accessible = getAccessible(scene);
@@ -291,7 +290,7 @@ export function TabBarItem<T extends Route>(props: Props<T>) {
       route={route}
       index={tabIndex}
       routesLength={navigationState.routes.length}
-      accessibilityLabel={accessibilityLabel}
+      aria-label={ariaLabel}
       label={label}
       testID={testID}
       accessible={accessible}

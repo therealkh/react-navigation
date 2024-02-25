@@ -9,7 +9,7 @@ export function HeaderButton({
   onPress,
   pressColor,
   pressOpacity,
-  accessibilityLabel,
+  'aria-label': ariaLabel,
   testID,
   style,
   href,
@@ -19,7 +19,7 @@ export function HeaderButton({
     <PlatformPressable
       disabled={disabled}
       href={href}
-      accessibilityLabel={accessibilityLabel}
+      aria-label={ariaLabel}
       testID={testID}
       onPress={onPress}
       pressColor={pressColor}

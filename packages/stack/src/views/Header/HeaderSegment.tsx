@@ -162,18 +162,18 @@ export function HeaderSegment(props: Props) {
     ? (props) =>
         left({
           ...props,
-          backImage: headerBackImage,
-          accessibilityLabel: headerBackAccessibilityLabel,
-          testID: headerBackTestID,
-          allowFontScaling: headerBackAllowFontScaling,
-          onPress: onGoBack,
-          label: headerBackTitle,
-          truncatedLabel: headerTruncatedBackTitle,
-          labelStyle: [leftLabelStyle, headerBackTitleStyle],
-          onLabelLayout: handleLeftLabelLayout,
-          screenLayout: layout,
+          'backImage': headerBackImage,
+          'aria-label': headerBackAccessibilityLabel,
+          'testID': headerBackTestID,
+          'allowFontScaling': headerBackAllowFontScaling,
+          'onPress': onGoBack,
+          'label': headerBackTitle,
+          'truncatedLabel': headerTruncatedBackTitle,
+          'labelStyle': [leftLabelStyle, headerBackTitleStyle],
+          'onLabelLayout': handleLeftLabelLayout,
+          'screenLayout': layout,
           titleLayout,
-          canGoBack: Boolean(onGoBack),
+          'canGoBack': Boolean(onGoBack),
         })
     : undefined;
 

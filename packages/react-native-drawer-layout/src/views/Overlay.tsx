@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Platform, Pressable, StyleSheet } from 'react-native';
 import Animated, {
+  type SharedValue,
   useAnimatedProps,
   useAnimatedStyle,
 } from 'react-native-reanimated';
@@ -8,9 +9,9 @@ import Animated, {
 const PROGRESS_EPSILON = 0.05;
 
 type Props = React.ComponentProps<typeof Animated.View> & {
-  progress: Animated.SharedValue<number>;
-  onPress: () => void;
-  accessibilityLabel?: string;
+  'progress': SharedValue<number>;
+  'onPress': () => void;
+  'aria-label'?: string;
 };
 
 export const Overlay = React.forwardRef(function Overlay(
@@ -18,7 +19,7 @@ export const Overlay = React.forwardRef(function Overlay(
     progress,
     onPress,
     style,
-    accessibilityLabel = 'Close drawer',
+    'aria-label': ariaLabel = 'Close drawer',
     ...props
   }: Props,
   ref: React.Ref<Animated.View>
@@ -36,9 +37,8 @@ export const Overlay = React.forwardRef(function Overlay(
     const active = progress.value > PROGRESS_EPSILON;
 
     return {
-      pointerEvents: active ? 'auto' : 'none',
-      accessibilityElementsHidden: !active,
-      importantForAccessibility: active ? 'auto' : 'no-hide-descendants',
+      'pointerEvents': active ? 'auto' : 'none',
+      'aria-hidden': !active,
     } as const;
   });
 
@@ -52,8 +52,8 @@ export const Overlay = React.forwardRef(function Overlay(
       <Pressable
         onPress={onPress}
         style={styles.pressable}
-        accessibilityRole="button"
-        accessibilityLabel={accessibilityLabel}
+        role="button"
+        aria-label={ariaLabel}
       />
     </Animated.View>
   );

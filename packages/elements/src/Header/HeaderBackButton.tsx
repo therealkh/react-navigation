@@ -25,10 +25,12 @@ export function HeaderBackButton({
   pressColor,
   pressOpacity,
   screenLayout,
-  tintColor: customTintColor,
+  'tintColor': customTintColor,
   titleLayout,
   truncatedLabel = 'Back',
-  accessibilityLabel = label && label !== 'Back' ? `${label}, back` : 'Go back',
+  'aria-label': ariaLabel = label && label !== 'Back'
+    ? `${label}, back`
+    : 'Go back',
   testID,
   style,
   href,
@@ -160,7 +162,7 @@ export function HeaderBackButton({
     <HeaderButton
       disabled={disabled}
       href={href}
-      accessibilityLabel={accessibilityLabel}
+      aria-label={ariaLabel}
       testID={testID}
       onPress={handlePress}
       pressColor={pressColor}

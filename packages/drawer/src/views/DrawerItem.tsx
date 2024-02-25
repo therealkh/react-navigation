@@ -14,21 +14,21 @@ type Props = {
   /**
    * The route object which should be specified by the drawer item.
    */
-  route: Route<string>;
+  'route': Route<string>;
   /**
    * The `href` to use for the anchor tag on web
    */
-  href?: string;
+  'href'?: string;
   /**
    * The label text of the item.
    */
-  label:
+  'label':
     | string
     | ((props: { focused: boolean; color: string }) => React.ReactNode);
   /**
    * Icon to display for the `DrawerItem`.
    */
-  icon?: (props: {
+  'icon'?: (props: {
     focused: boolean;
     size: number;
     color: string;
@@ -36,62 +36,62 @@ type Props = {
   /**
    * Whether to highlight the drawer item as active.
    */
-  focused?: boolean;
+  'focused'?: boolean;
   /**
    * Function to execute on press.
    */
-  onPress: () => void;
+  'onPress': () => void;
   /**
    * Color for the icon and label when the item is active.
    */
-  activeTintColor?: string;
+  'activeTintColor'?: string;
   /**
    * Color for the icon and label when the item is inactive.
    */
-  inactiveTintColor?: string;
+  'inactiveTintColor'?: string;
   /**
    * Background color for item when its active.
    */
-  activeBackgroundColor?: string;
+  'activeBackgroundColor'?: string;
   /**
    * Background color for item when its inactive.
    */
-  inactiveBackgroundColor?: string;
+  'inactiveBackgroundColor'?: string;
   /**
    * Color of the touchable effect on press.
    * Only supported on Android.
    *
    * @platform android
    */
-  pressColor?: string;
+  'pressColor'?: string;
   /**
    * Opacity of the touchable effect on press.
    * Only supported on iOS.
    *
    * @platform ios
    */
-  pressOpacity?: number;
+  'pressOpacity'?: number;
   /**
    * Style object for the label element.
    */
-  labelStyle?: StyleProp<TextStyle>;
+  'labelStyle'?: StyleProp<TextStyle>;
   /**
    * Style object for the wrapper element.
    */
-  style?: StyleProp<ViewStyle>;
+  'style'?: StyleProp<ViewStyle>;
   /**
    * Whether label font should scale to respect Text Size accessibility settings.
    */
-  allowFontScaling?: boolean;
+  'allowFontScaling'?: boolean;
 
   /**
    * Accessibility label for drawer item.
    */
-  accessibilityLabel?: string;
+  'aria-label'?: string;
   /**
    * ID to locate this drawer item in tests.
    */
-  testID?: string;
+  'testID'?: string;
 };
 
 /**
@@ -116,7 +116,7 @@ export function DrawerItem(props: Props) {
     pressColor,
     pressOpacity,
     testID,
-    accessibilityLabel,
+    'aria-label': ariaLabel,
     ...rest
   } = props;
 
@@ -137,9 +137,9 @@ export function DrawerItem(props: Props) {
       <PlatformPressable
         testID={testID}
         onPress={onPress}
-        accessibilityLabel={accessibilityLabel}
-        accessibilityRole="button"
-        accessibilityState={{ selected: focused }}
+        role="button"
+        aria-label={ariaLabel}
+        aria-selected={focused}
         pressColor={pressColor}
         pressOpacity={pressOpacity}
         href={href}

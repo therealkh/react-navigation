@@ -10,10 +10,10 @@ import { Image, Platform, StyleSheet } from 'react-native';
 import type { DrawerNavigationProp } from '../types';
 
 type Props = {
-  accessibilityLabel?: string;
-  pressColor?: string;
-  pressOpacity?: number;
-  tintColor?: string;
+  'aria-label'?: string;
+  'pressColor'?: string;
+  'pressOpacity'?: number;
+  'tintColor'?: string;
 };
 
 export function DrawerToggleButton({ tintColor, ...rest }: Props) {

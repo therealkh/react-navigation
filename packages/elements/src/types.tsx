@@ -151,43 +151,43 @@ export type HeaderButtonProps = {
   /**
    * Callback to call when the button is pressed.
    */
-  onPress?: () => void;
+  'onPress'?: () => void;
   /**
    * The `href` to use for the anchor tag on web
    */
-  href?: string;
+  'href'?: string;
   /**
    * Whether the button is disabled.
    */
-  disabled?: boolean;
+  'disabled'?: boolean;
   /**
    * Accessibility label for the button for screen readers.
    */
-  accessibilityLabel?: string;
+  'aria-label'?: string;
   /**
    * ID to locate this button in tests.
    */
-  testID?: string;
+  'testID'?: string;
   /**
    * Tint color for the header button.
    */
-  tintColor?: string;
+  'tintColor'?: string;
   /**
    * Color for material ripple (Android >= 5.0 only).
    */
-  pressColor?: string;
+  'pressColor'?: string;
   /**
    * Opacity when the button is pressed, used when ripple is not supported.
    */
-  pressOpacity?: number;
+  'pressOpacity'?: number;
   /**
    * Style object for the button.
    */
-  style?: StyleProp<ViewStyle>;
+  'style'?: StyleProp<ViewStyle>;
   /**
    * Content to render for the button. Usually the icon.
    */
-  children: React.ReactNode;
+  'children': React.ReactNode;
 };
 
 export type HeaderBackButtonProps = Omit<HeaderButtonProps, 'children'> & {

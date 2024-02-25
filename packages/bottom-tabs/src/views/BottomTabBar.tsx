@@ -331,7 +331,7 @@ export function BottomTabBar({
         {tabBarBackgroundElement}
       </View>
       <View
-        accessibilityRole="tablist"
+        role="tablist"
         style={tabBarIsHorizontal ? styles.bottomContent : styles.sideContent}
       >
         {routes.map((route, index) => {
@@ -368,7 +368,7 @@ export function BottomTabBar({
                   route.name
                 );
 
-          const accessibilityLabel =
+          const ariaLabel =
             options.tabBarAccessibilityLabel !== undefined
               ? options.tabBarAccessibilityLabel
               : typeof label === 'string' && Platform.OS === 'ios'
@@ -389,7 +389,7 @@ export function BottomTabBar({
                   horizontal={hasHorizontalLabels}
                   onPress={onPress}
                   onLongPress={onLongPress}
-                  accessibilityLabel={accessibilityLabel}
+                  aria-label={ariaLabel}
                   testID={options.tabBarButtonTestID}
                   allowFontScaling={options.tabBarAllowFontScaling}
                   activeTintColor={tabBarActiveTintColor}

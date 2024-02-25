@@ -325,8 +325,8 @@ const getAccessibleDefault = ({ route }: Scene<Route>) =>
   typeof route.accessible !== 'undefined' ? route.accessible : true;
 
 const getAccessibilityLabelDefault = ({ route }: Scene<Route>) =>
-  typeof route.accessibilityLabel === 'string'
-    ? route.accessibilityLabel
+  typeof route['aria-label'] === 'string'
+    ? route['aria-label']
     : typeof route.title === 'string'
       ? route.title
       : undefined;
@@ -678,7 +678,7 @@ export function TabBar<T extends Route>({
           data={routes as Animated.WithAnimatedValue<T>[]}
           keyExtractor={keyExtractor}
           horizontal
-          accessibilityRole="tablist"
+          role="tablist"
           keyboardShouldPersistTaps="handled"
           scrollEnabled={scrollEnabled}
           bounces={bounces}
